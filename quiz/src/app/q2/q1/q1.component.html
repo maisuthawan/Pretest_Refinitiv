@@ -1,0 +1,16 @@
+<h2>Question 1</h2>
+<!-- {{Math.round(val)}} -->
+<table class="table table-bordered table-hover">
+    <tbody>
+        <tr>
+            <td><input type="number" class="form-control" [(ngModel)]="val" placeholder="only number" (focusout)="chkVal = (type==1)? chkPrime(val):chkFibanacci(val)"></td>
+            <td>
+                <select name="" id="" class="form-control" [(ngModel)]="type" (change)="chkVal = (type==1)? chkPrime(val):chkFibanacci(val)">
+                    <option [value]=1>isPrime</option>
+                    <option [value]=2>IsFibanacci</option>
+                </select>
+            </td>
+            <td>{{val||val==0? chkVal:''}}</td>
+        </tr>
+    </tbody>
+</table>

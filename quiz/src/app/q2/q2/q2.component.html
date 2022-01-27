@@ -1,0 +1,11 @@
+<h2>Question 2</h2>
+<div class="container mb-3">
+    <input type="text" class="form-control" placeholder="Filter" (focusout)="search()" [(ngModel)]="text">
+</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr *ngFor="let i of lists">
+            <td>{{i}}</td>
+        </tr>
+    </thead>
+</table>
