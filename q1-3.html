@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q3</title>
+</head>
+
+<body>
+    <h3>Quiz: Make the box <u>not close</u> when click close button.</h3>
+    <i>Note that you can only add code inside Quiz block in JS section but can't modify class MyDlg.</i>
+    <br><br>
+    <my-dlg id="dlg"></my-dlg>
+
+</body>
+<script>
+    /*
+* Do not modify this class.
+* Custom Dialog Element.
+*/
+    class MyDlg extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            const div = document.createElement('div');
+            div.id = "container";
+            div.style.position = "relative";
+            div.style.width = div.style.height = "100px";
+            div.style.border = "1px solid black";
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = "X";
+            closeBtn.style.position = "absolute";
+            closeBtn.style.right = "0";
+            closeBtn.addEventListener('click', () => {
+                if (this.dispatchEvent(new CustomEvent('close-dlg', { cancelable: true }))) {
+                    div.style.display = "none";
+                }
+            })
+            div.appendChild(closeBtn);
+            this.appendChild(div);
+        }
+    }
+    // Define the new element
+    customElements.define('my-dlg', MyDlg);
+
+    /* Quiz: Write code to prevent dialog to close when click close button */
+    const dlg = document.getElementById('dlg');
+    const d = dlg.querySelector('div');
+    dlg.addEventListener('click', () => {
+        d.style.display = "block";
+    })
+
+    /****/
+</script>
+
+</html>
